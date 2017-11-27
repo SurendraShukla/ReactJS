@@ -103,4 +103,57 @@ class App extends React.Component {
 </pre>
     </td>
   </tr>
+  <tr>
+    <td>Props, State and Events</td>
+    <td>
+<pre lang="javascript">
+var Comments = React.createClass({
+
+    displayName: 'Comments',
+
+    getInitialState: function(){
+        return {comments: []}
+    },
+
+    getDefaultProps: function(){
+        return {some_object: {a:1, b:2, c:3}}
+    },
+
+    handleClick: function(){
+        alert('hello world!')
+    },
+
+    render: function(){
+        return <div>
+            There are {this.state.comments.length} comments
+            <button onClick={this.handleClick}>click me!</button>
+        </div>
+    }
+});
+</pre>
+    </td>
+    <td>
+<pre lang="javascript">
+class Comments extends React.Component {
+    constructor(...args){
+        super(...args);
+        this.state = {comments: [], toggledOn: false};
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(){
+        this.setState(prevState => ({ toggledOn: !prevState.toggledOn });
+    }
+
+    render(){
+        return <div>
+            There are {this.state.comments.length} comments
+            <button onClick={this.handleClick}> { this.state.toggledOn ? 'ON' : 'OFF' } </button>
+        </div>
+    }
+}
+Comments.defaultProps = {a:1, b:2, c:3}
+Comments.displayName = 'Comments'
+</pre>    
+    </td>
 </table>
