@@ -36,20 +36,20 @@ export default Component;
     <td>component and function</td>
     <td>
 <pre lang="javascript">
-  var MyComponent = React.createClass({
-    render: function() {
-        return <h3>Hello Edureka!</h3>;
-    }
-  });
+var MyComponent = React.createClass({
+  render: function() {
+      return <h3>Hello Edureka!</h3>;
+  }
+});
 </pre>
     </td>
     <td>
 <pre lang="javascript">
-  class MyComponent extends React.Component {
-      render() {
-          return <h3>Hello Edureka!</h3>;
-      }
-  }
+class MyComponent extends React.Component {
+    render() {
+        return <h3>Hello Edureka!</h3>;
+    }
+}
 </pre>
     </td>
   </tr>
@@ -57,21 +57,21 @@ export default Component;
     <td>props</td>
     <td>
 <pre lang="javascript">
-  var App = React.createClass({
-    propTypes: { name: React.PropTypes.string },
-    render: function() {
-        return <h3>Hello, {this.props.name}!</h3>;
-    }
-  });
+var App = React.createClass({
+  propTypes: { name: React.PropTypes.string },
+  render: function() {
+      return <h3>Hello, {this.props.name}!</h3>;
+  }
+});
 </pre>
     </td>
     <td>
 <pre lang="javascript">
-  class App extends React.Component {
-      render() {
-          return <h3>Hello, {this.props.name}!</h3>;
-      }
-  }
+class App extends React.Component {
+    render() {
+        return <h3>Hello, {this.props.name}!</h3>;
+    }
+}
 </pre>
     </td>
   </tr>
@@ -79,27 +79,27 @@ export default Component;
     <td>state</td>
     <td>
 <pre lang="javascript">
-  var App = React.createClass({
-      getInitialState: function() {
-          return { name: 'world' };
-      },
-      render: function() {
-          return <h3>Hello, {this.state.name}!</h3>;
-      }
-  });
+var App = React.createClass({
+    getInitialState: function() {
+        return { name: 'world' };
+    },
+    render: function() {
+        return <h3>Hello, {this.state.name}!</h3>;
+    }
+});
 </pre>
     </td>
     <td>
 <pre lang="javascript">
-  class App extends React.Component {
-      constructor() {
-          super();
-          this.state = { name: 'world' };
-      }
-      render() {
-          return <h3>Hello, {this.state.name}!</h3>;
-      }
-  }
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = { name: 'world' };
+    }
+    render() {
+        return <h3>Hello, {this.state.name}!</h3>;
+    }
+}
 </pre>
     </td>
   </tr>
