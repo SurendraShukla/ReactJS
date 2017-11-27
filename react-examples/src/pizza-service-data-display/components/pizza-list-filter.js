@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import LoadingMessage from './loading-message';
+import { LoadingMessage } from './loading-message';
 import SearchBar from './search-bar';
 import SortBar from './sort-bar';
-import List from './list';
+import { List } from './list';
 
 export default class PizzaListFilter extends Component {
 
@@ -26,12 +26,16 @@ export default class PizzaListFilter extends Component {
       return this.setState({
         sorted: 'DESC',
         pizzaList: this.state.pizzaList.reverse()
-      });
+        },
+        () => console.log('setState takes 2nd argument as callback')
+      );
     }
     return this.setState({
       sorted: 'ASC',
       pizzaList: this.state.pizzaList.sort()
-    });
+      },
+      () => console.log('setState takes 2nd argument as callback')
+    );
   }
 
   handleFilterTextChange(filterText) {
@@ -40,7 +44,9 @@ export default class PizzaListFilter extends Component {
         filterText: filterText,
         sorted: this.state.sorted,
         pizzaList: this.state.initialList
-      });
+        },
+        () => console.log('setState takes 2nd argument as callback')
+      );
     }
 
     var updatedPizzaList = this.state.pizzaList;
@@ -53,7 +59,9 @@ export default class PizzaListFilter extends Component {
       filterText: filterText,
       sorted: this.state.sorted,
       pizzaList: updatedPizzaList
-    });
+      },
+      () => console.log('setState takes 2nd argument as callback')
+    );
 
   }
 

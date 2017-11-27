@@ -15,7 +15,6 @@ fetch('/pizza.json')
 .then(function (response) {
   return response.json();
 }).then((json) => {
-  console.log(json);
   ReactDOM.render(
     <PizzaListFilter pizzaList={json} />,
     document.getElementById('pizza-service-data-display')
@@ -23,8 +22,7 @@ fetch('/pizza.json')
   // var sortedList = json['pizzas'].sort();
   // return this.setState(() => ({ pizzaList: sortedList, initialList: sortedList }));
 }).catch(function (ex) {
-  console.log(json);
-  console.log('parsing failed', ex)
+  console.log('parsing failed', ex);
   ReactDOM.render(
     <PizzaListFilter />,
     document.getElementById('pizza-service-data-display')

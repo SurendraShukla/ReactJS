@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-export default class LoadingMessage extends Component{
-  render() {
-    return <div>Loading...</div>;
-  }
-};
+export const LoadingMessage = () => (
+  <div>Loading...</div>
+);
