@@ -28,3 +28,6 @@ fetch('/pizza.json')
     document.getElementById('pizza-service-data-display')
   )
 });
+
+import TodoApp from './to-do/to-do-app';
+ReactDOM.render(<TodoApp />, document.getElementById('to-do'));

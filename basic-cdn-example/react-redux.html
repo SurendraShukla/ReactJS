@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>JS Bin</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.0.4/redux.js"></script>
+
+	<script type="text/javascript" src="https://fb.me/react-15.0.1.js"></script>
+	<script type="text/javascript" src="https://fb.me/react-dom-15.0.1.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/expect/1.20.2/expect.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/deep-freeze@0.0.1/index.min.js"></script
+
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+	var counter = ( state = 0, action) => {
+		if(typeof state === undefined) {
+			return 0;
+		}
+
+		switch(action.type) {
+			case 'INCREMENT':
+			return state + 1;
+			case 'DECREMENT':
+			return state - 1;
+			default:
+			return state;
+		}
+	};
+
+	const Counter = ({
+		value,
+		onIncrement,
+		onDecrement
+	}) => (
+		<div>
+			<h1>{value}</h1>
+			<button onClick={onIncrement}>+</button>
+			<button onClick={onDecrement}>-</button>
+		</div>
+	);
+
+	// Creating redux store
+	const { createStore } = Redux; // var createStore = Redux.createStore;
+	// import { createStore } from 'Redux';
+
+	// Defining reducer for redux
+	const store = createStore(counter);
+
+	const render = () => {
+		ReactDOM.render(
+			<Counter 
+				value={store.getState()}
+				onIncrement={() => 
+					store.dispatch({
+						type: 'INCREMENT'
+					})
+				}
+				onDecrement={() => 
+					store.dispatch({
+						type: 'DECREMENT'
+					})
+				} />
+			,
+			document.getElementById('root')
+		);
+	};
+
+	store.subscribe(render);
+	render();
+
+	// document.addEventListener('click', () => {
+	// 	store.dispatch({type: 'INCREMENT'});
+	// });
+	</script>
+
+</body>
+</html>
