@@ -1,12 +1,12 @@
 ## React Syntax for ES5 and ES6
 
 <table>
-  <tr>
-    <th></th>
-    <th>ES5</th>
-    <th>ES6</th>
+  <tr style="background-color: #f6f8fa;">
+    <th style="width: 200px;"></th>
+    <th style="width: 200px;">ES5</th>
+    <th style="width: 200px;">ES6</th>
   </tr>
-  <tr>
+  <tr style="background-color: #f6f8fa;">
     <td>require vs import</td>
     <td>
 <pre lang="javascript">
@@ -19,7 +19,7 @@ import React from 'react';
 </pre>
     </td>
   </tr>
-  <tr>
+  <tr style="background-color: #f6f8fa;">
     <td>export vs exports</td>
     <td>
 <pre lang="javascript">
@@ -32,7 +32,7 @@ export default Component;
 </pre>
     </td>
   </tr>
-  <tr>
+  <tr style="background-color: #f6f8fa;">
     <td>component and function</td>
     <td>
 <pre lang="javascript">
@@ -53,7 +53,7 @@ class MyComponent extends React.Component {
 </pre>
     </td>
   </tr>
-  <tr>
+  <tr style="background-color: #f6f8fa;">
     <td>props</td>
     <td>
 <pre lang="javascript">
@@ -75,7 +75,7 @@ class App extends React.Component {
 </pre>
     </td>
   </tr>
-  <tr>
+  <tr style="background-color: #f6f8fa;">
     <td>state</td>
     <td>
 <pre lang="javascript">
