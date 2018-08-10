@@ -20,7 +20,7 @@ export default class LazyLoad extends Component {
     window.addEventListener('scroll', this._trackYPosition)
     this._scroll()
   }
-  componentDidUnmount(){
+  componentWillUnmount(){
     window.removeEventListener('scroll', this._trackYPosition)
   }
   render(){
