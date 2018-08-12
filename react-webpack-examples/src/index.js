@@ -38,3 +38,9 @@ ReactDOM.render(<LazyLoad>
         <img src="https://media2.giphy.com/media/3oEduUDvycvu3GYkdG/200w.gif"/>
         <img src="https://media0.giphy.com/media/142UITjG5GjIRi/200w.gif" />
     </LazyLoad>, document.getElementById('hoc-lazy-load'));
+
+
+import Timer from './timer';
+ReactDOM.render(<Timer />, document.getElementById('timer'));
+
+
