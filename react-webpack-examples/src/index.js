@@ -1,46 +1,38 @@
-import fetch from 'isomorphic-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import FilterableProductTable from './product-data-table/components/filterable-product-table';
-import { PRODUCTS } from './product-data-table/products';
-
-ReactDOM.render(
-  <FilterableProductTable products={PRODUCTS} />,
-  document.getElementById('product-data-table')
-);
-
-import PizzaListFilter from './pizza-service-data-display/components/pizza-list-filter';
-fetch('/pizza.json')
-.then(function (response) {
-  return response.json();
-}).then((json) => {
-  ReactDOM.render(
-    <PizzaListFilter pizzaList={json} />,
-    document.getElementById('pizza-service-data-display')
-  )
-  // var sortedList = json['pizzas'].sort();
-  // return this.setState(() => ({ pizzaList: sortedList, initialList: sortedList }));
-}).catch(function (ex) {
-  console.log('parsing failed', ex);
-  ReactDOM.render(
-    <PizzaListFilter />,
-    document.getElementById('pizza-service-data-display')
-  )
-});
-
-import TodoApp from './to-do/to-do-app';
-ReactDOM.render(<TodoApp />, document.getElementById('to-do'));
-
-import LazyLoad from './higher-order-components/lazy-load';
-ReactDOM.render(<LazyLoad>
-        <img src="https://media.giphy.com/media/HhvUpQhBWMtwc/200.gif"/>
-        <img src="https://media2.giphy.com/media/3oEduUDvycvu3GYkdG/200w.gif"/>
-        <img src="https://media0.giphy.com/media/142UITjG5GjIRi/200w.gif" />
-    </LazyLoad>, document.getElementById('hoc-lazy-load'));
+import Timer from '../../react-scripts-examples/src/timer/timer';
+import TodoApp from '../../react-scripts-examples/src/to-do/smart/to-do-app';
+import LazyLoad from '../../react-scripts-examples/src/higher-order-components/lazy-load';
+import PizzaList from "../../react-scripts-examples/src/pizza-service-data-display/components/smart/pizza-list";
+import FilterableProductTable from '../../react-scripts-examples/src/product-data-table/components/smart/filterable-product-table';
 
 
-import Timer from './timer';
-ReactDOM.render(<Timer />, document.getElementById('timer'));
-
-
+ReactDOM.render((
+    <div className="container">
+        <div className="row">
+            <span className="col-xs-3" id="product-data-table">
+                <FilterableProductTable />
+                </span>
+            <span className="col-xs-3" id="pizza-service-data-display">
+                <PizzaList />
+                </span>
+            <span className="col-xs-2" id="to-do">
+                <TodoApp />
+            </span>
+            <span className="col-xs-2" id="timer">
+                <Timer />
+                </span>
+        </div>
+        <div className="row">&nbsp;</div>
+        <div className="row">
+            <span className="col-xs-3" id="hoc-lazy-load">
+                <LazyLoad>
+                    <img src="https://media.giphy.com/media/HhvUpQhBWMtwc/200.gif"/>
+                    <img src="https://media2.giphy.com/media/3oEduUDvycvu3GYkdG/200w.gif"/>
+                    <img src="https://media0.giphy.com/media/142UITjG5GjIRi/200w.gif" />
+                </LazyLoad>
+            </span>
+        </div>
+    </div>
+), document.getElementById('content'));

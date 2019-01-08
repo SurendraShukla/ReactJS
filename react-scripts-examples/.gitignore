@@ -19,3 +19,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+*.iml
+.bundle
+.DS_STORE
+.idea
+npm-debug.log
+node_modules
+output
+dist
+coverage
+*.swp

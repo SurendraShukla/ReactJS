@@ -5,7 +5,7 @@ import TestUtils from 'react-dom/test-utils';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'code';
 
-import PizzaListFilter from '../../../react-scripts-examples/src/pizza-service-data-display/components/smart/pizza-list-filter';
+import Filter from '../src/pizza/components/filter';
 
 let pizzaList = {
   "pizzas": [
@@ -21,25 +21,25 @@ let pizzaList = {
   ]
 };
 
-describe('PizzaListFilter View', () => {
+describe('Filter View', () => {
 
   beforeEach(() => {
   });
 
-  it('should display list, sort button and input for PizzaListFilter if pizza list is there', () => {
-    const app = mount(<PizzaListFilter pizzaList={pizzaList} />);
+  it('should display list, sort button and input for filter if pizza list is there', () => {
+    const app = mount(<Filter pizzaList={pizzaList} />);
     expect(app.find('input')).to.exist();
     expect(app.find('button')).to.exist();
     expect(app.find('li').length).to.equal(pizzaList['pizzas'].length);
   });
 
   it('should display loading only when page waits for data to load', () => {
-    const app = mount(<PizzaListFilter />);
+    const app = mount(<Filter />);
     expect(app.text().toLowerCase()).contains('loading');
   });
 
-  it('should PizzaListFilter pizza list as per PizzaListFilter text and filteration should be case insensitive', () => {
-    const app = mount(<PizzaListFilter pizzaList={pizzaList} />);
+  it('should filter pizza list as per filter text and filteration should be case insensitive', () => {
+    const app = mount(<Filter pizzaList={pizzaList} />);
     let expectedOutput = [ '3 cheeSe', 'Cheese', 'Chicken' ];
 
     let addInput = app.find('input').get(0);
@@ -55,7 +55,7 @@ describe('PizzaListFilter View', () => {
 
   it('should sort list descending or ascending if sort button is clicked', () => {
 
-    const app = mount(<PizzaListFilter pizzaList={pizzaList} />);
+    const app = mount(<Filter pizzaList={pizzaList} />);
     let listSortedAsc = pizzaList['pizzas'].sort();
     let listSortedDesc = listSortedAsc.reverse();
 
@@ -69,8 +69,8 @@ describe('PizzaListFilter View', () => {
   it('should sort for filtered list', () => {
 
     let filteredList = [ 'Sausage', 'Sausage and Pepperoni' ];
-
-    const app = mount(<PizzaListFilter pizzaList={pizzaList} />);
+    
+    const app = mount(<Filter pizzaList={pizzaList} />);
 
     let addInput = app.find('input').get(0);
     addInput.value = 'Sau';
